@@ -5,7 +5,7 @@ import jwt, { Secret } from "jsonwebtoken";
 import { MainResturant } from "../repositries/resturant.repositries";
 import { IResturantInfoRequest } from "../types/request/resturant.request";
 import CustomeError from '../utills/error';
-import { Irestaurant } from "../types/document/Iresturant";
+import { Irestaurant } from "../types/document/iresturant";
 import { nearby } from "../modules/nearby.resturant";
 require('dotenv').config();
 
@@ -44,7 +44,6 @@ export class ResturantController {
     @Post("/nearbyresturant")
     async nearbyresturant(@Body() body: INearByResturantRequest): Promise<any> {
         const savedresturant: any = await new MainResturant().getDistance()
-        //console.log(savedresturant);
         const nearbyresturat = nearby(body, savedresturant)
         return nearbyresturat;
     }

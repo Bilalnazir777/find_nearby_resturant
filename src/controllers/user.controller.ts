@@ -1,6 +1,6 @@
 import { Get, Route, Tags, Post, Body, Path, Put, Delete, SuccessResponse } from "tsoa";
 import { MainUser } from "../repositries/user.repositries"
-import { IUser } from "../types/document/Iuser"
+import { IUser } from "../types/document/iuser"
 import { IDeleteUserRequest } from "../types/request/user.request";
 import { IUserRegisterRequest } from "../types/request/user.request"
 import { IUserRegisterResponse } from "../types/response/user.response"

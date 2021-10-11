@@ -1,4 +1,4 @@
-import { coordinates } from "../document/Iresturant";
+import { coordinates } from "../document/iresturant";
 
 export interface AdminLoginRes {
     TOKEN_KEY?: string;

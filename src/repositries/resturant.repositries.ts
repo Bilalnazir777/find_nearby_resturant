@@ -1,6 +1,6 @@
 import { ResturantSchema } from "../models/restaurant.model";
 import { UserSchema } from "../models/user.model";
-import { Irestaurant } from "../types/document/Iresturant";
+import { Irestaurant } from "../types/document/iresturant";
 const geolib = require('geolib');
 import { getDistance } from 'geolib';
 import { INearByResturantRequest } from "../types/request/resturant.request";
