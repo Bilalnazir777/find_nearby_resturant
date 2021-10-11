@@ -1,0 +1,527 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"AdminLoginRes": {
+				"properties": {
+					"TOKEN_KEY": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AdminLoginReq": {
+				"properties": {
+					"name": {
+						"type": "string",
+						"enum": [
+							"admin"
+						],
+						"nullable": false
+					},
+					"email": {
+						"type": "string",
+						"enum": [
+							"admin@test.com"
+						],
+						"nullable": false
+					},
+					"password": {
+						"type": "string",
+						"enum": [
+							"admin@123"
+						],
+						"nullable": false
+					}
+				},
+				"required": [
+					"name",
+					"email",
+					"password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"coordinates": {
+				"properties": {
+					"latitude": {
+						"type": "number",
+						"format": "double"
+					},
+					"longitude": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"latitude",
+					"longitude"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ISaveResturantResponse": {
+				"properties": {
+					"resturant_name": {
+						"type": "string"
+					},
+					"resturant_location": {
+						"$ref": "#/components/schemas/coordinates"
+					}
+				},
+				"required": [
+					"resturant_name",
+					"resturant_location"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ISaveResturantRequest": {
+				"properties": {
+					"resturant_name": {
+						"type": "string"
+					},
+					"resturant_location": {
+						"$ref": "#/components/schemas/coordinates"
+					}
+				},
+				"required": [
+					"resturant_name",
+					"resturant_location"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"_LeanDocument__LeanDocument_T__": {
+				"properties": {},
+				"type": "object"
+			},
+			"Pick__LeanDocument_T_.Exclude_keyof_LeanDocument_T_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested__": {
+				"properties": {
+					"_id": {
+						"$ref": "#/components/schemas/_LeanDocument__LeanDocument_T__",
+						"description": "This documents _id."
+					},
+					"__v": {
+						"description": "This documents __v."
+					},
+					"id": {
+						"description": "The string version of this documents _id."
+					}
+				},
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"Omit__LeanDocument_this_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested_": {
+				"$ref": "#/components/schemas/Pick__LeanDocument_T_.Exclude_keyof_LeanDocument_T_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested__",
+				"description": "Construct a type with the properties of T except for those in type K."
+			},
+			"LeanDocument_this_": {
+				"$ref": "#/components/schemas/Omit__LeanDocument_this_.Exclude_keyofDocument._id-or-id-or-__v_-or-%24isSingleNested_"
+			},
+			"Irestaurant": {
+				"$ref": "#/components/schemas/LeanDocument_this_"
+			},
+			"IDeleteRestaurantRequest": {
+				"properties": {
+					"restaurantid": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"restaurantid"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IResturantInfoRequest": {
+				"properties": {
+					"resturantid": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"resturantid"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"INearByResturantRequest": {
+				"properties": {
+					"location": {
+						"$ref": "#/components/schemas/coordinates"
+					},
+					"radius": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"location",
+					"radius"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IUserRegisterResponse": {
+				"properties": {
+					"user_name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"user_name",
+					"email",
+					"address"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IUserRegisterRequest": {
+				"properties": {
+					"user_name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"user_name",
+					"email",
+					"address"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IUser": {
+				"$ref": "#/components/schemas/LeanDocument_this_"
+			},
+			"IDeleteUserRequest": {
+				"properties": {
+					"userid": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"userid"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"api_key": {
+				"type": "apiKey",
+				"name": "token",
+				"in": "header"
+			}
+		}
+	},
+	"info": {
+		"title": "resturant",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/resturant/authAdmin": {
+			"post": {
+				"operationId": "AuthAdmin",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AdminLoginRes"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"resturant"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AdminLoginReq"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/resturant/saveresturant": {
+			"post": {
+				"operationId": "Saveresturant",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ISaveResturantResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"resturant"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ISaveResturantRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/resturant/deleteresturant": {
+			"delete": {
+				"operationId": "Deleteresturant",
+				"responses": {
+					"200": {
+						"description": "user deleted",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Irestaurant"
+										},
+										{
+											"properties": {
+												"_id": {}
+											},
+											"required": [
+												"_id"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"resturant"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IDeleteRestaurantRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/resturant/resturantinfo": {
+			"post": {
+				"operationId": "Resturantinfo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ISaveResturantResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"resturant"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IResturantInfoRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/resturant/nearbyresturant": {
+			"post": {
+				"operationId": "Nearbyresturant",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"resturant"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/INearByResturantRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/registeruser": {
+			"post": {
+				"operationId": "RegisterUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IUserRegisterResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"user"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IUserRegisterRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/deleteuser": {
+			"delete": {
+				"operationId": "Deleteuser",
+				"responses": {
+					"200": {
+						"description": "user deleted",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/IUser"
+										},
+										{
+											"properties": {
+												"_id": {}
+											},
+											"required": [
+												"_id"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"user"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IDeleteUserRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/getuserlist": {
+			"post": {
+				"operationId": "UserList",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/IUserRegisterRequest"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"user"
+				],
+				"security": [],
+				"parameters": []
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

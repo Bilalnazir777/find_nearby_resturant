@@ -29,11 +29,17 @@
   },
   "dependencies": {
     "@cloudnative/health-connect": "^2.1.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/geolib": "^2.0.23",
+    "@types/jsonwebtoken": "^8.5.5",
     "@types/node": "^16.10.3",
     "axios": "^0.22.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "geolib": "^3.3.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.9",
     "morgan": "^1.10.0",
     "opossum": "^6.2.1",
@@ -46,5 +52,5 @@
     ],
     "ext": "ts",
     "exec": "ts-node src/index.ts"
-    }
+  }
 }
